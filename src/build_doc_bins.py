@@ -4,6 +4,10 @@ from spacy.matcher import PhraseMatcher
 import numpy as np
 import time
 
+"""
+This program's only purpose is to build the doc_bins that will be used by spacy to train the model. The doc bins are special binaries used by spacy.
+"""
+
 # Load the small NLP pre-trained model
 nlp = spacy.load('en_core_web_sm')
 
@@ -11,7 +15,7 @@ nlp = spacy.load('en_core_web_sm')
 TEST_DATA = np.load("./dataset/TEST_DATA_np.npy", allow_pickle=True)
 TRAIN_DATA = np.load("./dataset/TRAIN_DATA_np.npy", allow_pickle=True)
 
-def display_basic_information_on_data(data, label):
+def display_basic_information_on_data(data:np.ndarray, label:str):
     print(f'Printing {label} information.')
     print("\nData summary:\n", data)
     print("\nData shape:\n", data.shape)
@@ -76,7 +80,8 @@ def build_doc_bin(data, save_file_path, is_test_data=False):
 
 # Main program workflow
 if __name__ == "__main__":
-
+    print(type(TEST_DATA))
+    exit(0)
     # display_basic_information_on_data(TEST_DATA,'TEST_DATA')
 
     # display_basic_information_on_data(TRAIN_DATA,'TRAIN_DATA')
