@@ -79,9 +79,7 @@ def build_doc_bin(data, save_file_path, is_test_data=False):
     print(f'Saved the DocBin to directory: {save_file_path:20}')
 
 # Main program workflow
-if __name__ == "__main__":
-    print(type(TEST_DATA))
-    exit(0)
+if __name__ == "__main__":   
     # display_basic_information_on_data(TEST_DATA,'TEST_DATA')
 
     # display_basic_information_on_data(TRAIN_DATA,'TRAIN_DATA')

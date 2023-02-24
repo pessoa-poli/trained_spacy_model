@@ -18,7 +18,7 @@ After running the above command, the spacy `doc_bins` will have been generated, 
 The result meaning the trained model will be stored in the `target` folder.
 After this you can run `python src/using_trained_model.py` to see the result given by the trained model.
 
-# How the training configuration file was generates
+# How the training configuration file was generated
 ```
 python -m spacy init config ./config.cfg --lang en --pipeline ner
 ```
