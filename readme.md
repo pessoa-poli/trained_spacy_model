@@ -1,7 +1,7 @@
 # Information about the project
 
 Python 3.8.10 was the python version used in this project.  
-Use the requirements.txt file for the other dependencies needes.  
+Use the requirements.txt file for the other dependencies needed.  
 Load the dependencies in a python environment with:  
 ```
 python -m venv env
