@@ -1,7 +1,7 @@
 # Information about the project
 
 Python 3.8.10 was the python version used in this project.  
-Use the requirements.txt file for the other dependencies needes.  
+Use the requirements.txt file for the other dependencies needed.  
 Load the dependencies in a python environment with:  
 ```
 python -m venv env
@@ -15,7 +15,7 @@ After installing the right version of python and the requirements from `requirem
 activate the virtual environment with `source env/bin/activate`,
 then you can run the build_doc_bins.py with `python src/build_doc_bins.py`.  
 After running the above command, the spacy `doc_bins` will have been generated, then you can run the training command to train the model with the `doc_bins`: `python -m spacy train ./config.cfg`  
-The result meaning the trained model will be stored in the `target` folder.
+The trained model will be stored in the `target` folder.
 After this you can run `python src/using_trained_model.py` to see the result given by the trained model.
 
 # How the training configuration file was generated
@@ -38,7 +38,7 @@ The `--paths.dev` flag specify the test data file.
 
 # The project_images folder.
 This folder was created only to house eventual images that I deemed worth to be placed within the repository.  
-A example is the figure showing the training output, to illustrate what kind of output the user should be expecting.
+An example is the figure showing the training output, to illustrate what kind of output the user should be expecting.
 
 # Loading and using the trained pipeline.
 The output of the training will be a regular loadable Spacy pipeline.  
