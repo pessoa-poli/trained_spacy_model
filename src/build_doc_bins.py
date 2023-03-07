@@ -42,14 +42,18 @@ def build_doc_bin(data, save_file_path, is_test_data=False):
         try:
             if (not is_test_data): # If it isn't TestData it is TrainData
                 entity_markup_list = entry[1]['entities']
+
                 # Example ot entry on TrainData:
                 """['It lays a certain theoretical foundation for giant magnetostrictive relay actuator being used in the fields of cutting with invariableness cutting force.\tCopy'
                  {'entities': [(68, 82, 'Device')]}]"""
+                
             else:
                 entity_markup_list = entry[1] # Test data has a different format. Whereas the train data stores the entity_markup inside a dictionary, under the key 'entities', the TestData stores it simply in a list, which means we have to remove the key index.
+
                 # Example of entry on TestData:
                 """["Don't take our word for it, check the Water Survey of Canada's factual PostgreSQL."                
                 list([(71, 81, 'Resource')])]"""
+
         except Exception as e:
             print('The following entry was problematic to deal with:')
             print(10*'#')
@@ -80,9 +84,9 @@ def build_doc_bin(data, save_file_path, is_test_data=False):
 
 # Main program workflow
 if __name__ == "__main__":   
-    # display_basic_information_on_data(TEST_DATA,'TEST_DATA')
+    display_basic_information_on_data(TEST_DATA,'TEST_DATA')
 
-    # display_basic_information_on_data(TRAIN_DATA,'TRAIN_DATA')
+    display_basic_information_on_data(TRAIN_DATA,'TRAIN_DATA')
 
     print('Creating a DocBin for the TRAIN_DATA')
     start = time.time()
