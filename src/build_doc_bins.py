@@ -33,7 +33,8 @@ def print_entry_info(entry):
     print(entities_list)
     print(10*'#')
 
-def build_doc_bin(data, save_file_path, is_test_data=False):    
+def build_doc_bin(data, save_file_path, is_test_data=False):
+    entities_dictionary = {}
     docs = [] # List of documents where all docs will be appended as we generate them
     for i,entry in enumerate(data):        
         phrase = entry[0]
@@ -66,7 +67,11 @@ def build_doc_bin(data, save_file_path, is_test_data=False):
             pattern = phrase[entity_markup[0]:entity_markup[1]]
             # build a matcher
             matcher = PhraseMatcher(nlp.vocab)
-            label = entity_markup[2]           
+            label = entity_markup[2]
+            if label in entities_dictionary.keys():
+                entities_dictionary[label] += 1
+            else:
+                entities_dictionary[label] = 1
             matcher.add(label, list(nlp.pipe([pattern])))                        
             matches = matcher(doc)
             if len(matches) == 0:            
@@ -80,6 +85,8 @@ def build_doc_bin(data, save_file_path, is_test_data=False):
             docs.append(doc)    
     doc_bin = DocBin(docs=docs)
     doc_bin.to_disk(save_file_path)
+    with open("./dictionary.py","a+") as f:
+        f.write(f"{entities_dictionary}")
     print(f'Saved the DocBin to directory: {save_file_path:20}')
 
 # Main program workflow
@@ -88,11 +95,11 @@ if __name__ == "__main__":
 
     display_basic_information_on_data(TRAIN_DATA,'TRAIN_DATA')
 
-    print('Creating a DocBin for the TRAIN_DATA')
+    # print('Creating a DocBin for the TRAIN_DATA')
     start = time.time()
     build_doc_bin(data=TRAIN_DATA, save_file_path='./doc_bins/train_data.doc_bin.spacy')
 
-    print('Creating a DocBin for the TEST_DATA')
+    # print('Creating a DocBin for the TEST_DATA')
     build_doc_bin(data=TEST_DATA, save_file_path='./doc_bins/test_data.doc_bin.spacy', is_test_data=True)
 
     end = time.time()

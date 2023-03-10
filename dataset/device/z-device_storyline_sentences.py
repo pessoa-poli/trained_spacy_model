@@ -2021,3 +2021,9 @@ sentences = {
 "The Bosch BCC100 Connected Control Smart Phone Wi-Fi Thermostat's energy-saving features helped Mark reduce his electricity bill while still keeping his home comfortable."
 ]
 }
+
+if __name__ == "__main__":
+    phrase_count = 0
+    for key in sentences.keys():
+        phrase_count += len(sentences[key])
+    print(f"Generated DEVICE phrases count: {phrase_count}")

@@ -30,6 +30,5 @@ devices_list = ["Smart thermostat",
 "Smart fan",
 "Smart air purifier",
 "Smart humidifier",
-
 "Smart dehumidifier",
 "Smart thermostat with voice control"]
